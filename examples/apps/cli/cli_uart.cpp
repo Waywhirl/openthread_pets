@@ -51,6 +51,11 @@
  * The size of CLI UART RX buffer in bytes.
  *
  */
+
+/**
+ * this is the first file edited to make sure i can change shit and then push it
+ * git is kinda hard sometimes :/
+ */
 #ifndef OPENTHREAD_CONFIG_CLI_UART_RX_BUFFER_SIZE
 #if OPENTHREAD_CONFIG_REFERENCE_DEVICE_ENABLE
 #define OPENTHREAD_CONFIG_CLI_UART_RX_BUFFER_SIZE 640
