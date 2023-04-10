@@ -45,7 +45,8 @@ set(COMMON_SOURCES
     cli_srp_client.cpp
     cli_srp_server.cpp
     cli_tcp.cpp
-    cli_udp.cpp
+        cli_toy.cpp
+        cli_udp.cpp
 )
 
 if(OT_FTD)
@@ -59,6 +60,7 @@ endif()
 if(OT_RCP)
     include(radio.cmake)
 endif()
+
 
 set_property(SOURCE cli_joiner.cpp
     APPEND PROPERTY COMPILE_DEFINITIONS "PACKAGE_VERSION=\"${OT_PACKAGE_VERSION}\""
