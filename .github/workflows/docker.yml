@@ -37,7 +37,7 @@ on:
       - 'main'
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event.pull_request.number || (github.repository == 'openthread/openthread' && github.run_id) || github.ref }}
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || (github.repository == 'Waywhirl/openthread_pets' && github.run_id) || github.ref }}
   cancel-in-progress: true
 
 permissions:  # added using https://github.com/step-security/secure-workflows
@@ -90,18 +90,18 @@ jobs:
         docker buildx build --output "type=image,push=false" ${{ steps.prepare.outputs.buildx_args }}
 
     - name: Login to DockerHub
-      if: success() && github.repository == 'openthread/openthread' && github.event_name != 'pull_request'
+      if: success() && github.repository == 'Waywhirl/openthread_pets' && github.event_name != 'pull_request'
       uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a # v2.1.0
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Docker Buildx (push)
-      if: success() && github.repository == 'openthread/openthread' && github.event_name != 'pull_request'
+      if: success() && github.repository == 'Waywhirl/openthread_pets' && github.event_name != 'pull_request'
       run: |
         docker buildx build --output "type=image,push=true" ${{ steps.prepare.outputs.buildx_args }}
 
     - name: Inspect Image
-      if: always() && github.repository == 'openthread/openthread' && github.event_name != 'pull_request'
+      if: always() && github.repository == 'Waywhirl/openthread_pets' && github.event_name != 'pull_request'
       run: |
         docker buildx imagetools inspect ${{ steps.prepare.outputs.docker_image }}:${{ steps.prepare.outputs.version }}

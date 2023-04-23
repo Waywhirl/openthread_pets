@@ -34,9 +34,7 @@ static void TimerCallback(otTimer *aTimer, void *aContext)
 
         otMessageInfoInit(&messageInfo);
         messageInfo.mPeerAddr = ip6Address;
-
         otMessageAppend(message, "hello", sizeof("hello") - 1);
-
         otError error = otIp6Send(sInstance, message, &messageInfo);
 
         if (error != OT_ERROR_NONE)
@@ -131,6 +129,5 @@ int main(int argc, char *argv[])
     }
     return 0;
 }
-
 
 #endif //OPENTHREAD_CONFIG_TOY_ENABLE
