@@ -16,10 +16,10 @@ x86_linux: x86_ubuntu_wpantund
 	docker push openthread/wpantund_amd64_linux:$(VERSION)
 
 simulation: ot_simulation
-	docker build -t openthread/simulation ot_sim && \
-	docker push openthread/simulation && \
-	docker tag openthread/simulation openthread/simulation:$(VERSION) && \
-	docker push openthread/simulation:$(VERSION)
+	docker build -t openthread_pets/simulation ot_sim && \
+	docker push openthread_pets/simulation && \
+	docker tag openthread_pets/simulation openthread_pets/simulation:$(VERSION) && \
+	docker push openthread_pets/simulation:$(VERSION)
 
 publish_manifest:
 	docker manifest create openthread/wpantund openthread/wpantund_arm32v7_linux openthread/wpantund_amd64_linux
