@@ -27,7 +27,7 @@ RUN set -x \
 
 # set up openthread simulation cli example apps 
 WORKDIR /
-COPY . openthread_pets
+COPY ../ openthread_pets
 RUN set -x \
     && cd openthread_pets \
     && ./script/bootstrap \
