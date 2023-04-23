@@ -29,7 +29,7 @@ RUN set -x \
 WORKDIR /
 COPY . openthread_pets 
 RUN set -x \
-    && cd openthread \
+    && cd openthread_pets \
     && ./script/bootstrap \
     && mkdir build \
     && cd build \
@@ -39,5 +39,5 @@ RUN set -x \
 # set up ot-daemon
 WORKDIR /
 RUN set -x \
-    && cd openthread \
+    && cd openthread_pets \
     && ./script/cmake-build posix -DOT_DAEMON=ON
