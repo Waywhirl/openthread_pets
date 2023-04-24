@@ -47,7 +47,7 @@ void ot::Cli::Toy::StopTimer()
     mTimer.Stop();
 }
 
-void Toy::HandleTimer(TimerMilli &aTimer, void *aContext)
+void ot::Cli::Toy::HandleTimer(TimerMilli &aTimer, void *aContext)
 {
     Toy *obj = static_cast<Toy *>(aContext);
     obj->SendToyMessage();
@@ -58,13 +58,13 @@ otError ot::Cli::Toy::ProcessCommand(const char *aCommand)
 {
     if (strcmp(aCommand, "toy start") == 0)
     {
-        otCliOutputFormat("Starting to send 'hello' every second until the command 'toy stop' is run.\n");
+        AppendResult("Starting to send 'hello' every second until the command 'toy stop' is run.\n");
         StartTimer(1000);
         return OT_ERROR_NONE;
     }
     else if (strcmp(aCommand, "toy stop") == 0)
     {
-        otCliOutputFormat("Stopping 'hello' messages.\n");
+        AppendResult("Stopping 'hello' messages.\n");
         StopTimer();
         return OT_ERROR_NONE;
     }
