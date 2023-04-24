@@ -21,9 +21,8 @@ namespace Cli {
 class Toy : private Output
 {
 public:
-    Toy(otInstance *aInstance, OutputImplementer &aOutputImplementer)
-          : Output(aInstance, aOutputImplementer),
-        mTimer(*static_cast<ot::Instance *>(aInstance), &Toy::HandleTimer) //pass handler function to TimerMilli constructor
+    Toy(ot::Instance &aInstance, OutputImplementer &aOutput)
+          : mOutput(aOutput), mInstance(aInstance), mTimer(aInstance, HandleTimer, this)
     {
     }
 
@@ -34,11 +33,7 @@ private:
     void StartTimer(uint32_t aTimeout);
     void StopTimer();
 
-    void HandleTimer(ot::TimerMilli &aTimer)
-    {
-        SendToyMessage();
-        static_cast<ot::TimerMilli &>(aTimer).Start(1000);
-    }
+    static void HandleTimer(TimerMilli &aTimer, void *aContext);
 
     ot::TimerMilli mTimer;
     uint32_t mTimeout;

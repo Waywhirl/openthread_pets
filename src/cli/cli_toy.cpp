@@ -47,9 +47,10 @@ void ot::Cli::Toy::StopTimer()
     mTimer.Stop();
 }
 
-void ot::Cli::Toy::HandleTimer(ot::TimerMilli &aTimer, void *aContext)
+void Toy::HandleTimer(TimerMilli &aTimer, void *aContext)
 {
-    static_cast<Toy *>(aContext)->SendToyMessage();
+    Toy *obj = static_cast<Toy *>(aContext);
+    obj->SendToyMessage();
     aTimer.Start(1000);
 }
 
