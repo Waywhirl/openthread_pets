@@ -20,7 +20,8 @@ class Toy : private Output
 {
 public:
     Toy(otInstance *aInstance, OutputImplementer &aOutputImplementer)
-          : Output(aInstance, aOutputImplementer)
+          : Output(aInstance, aOutputImplementer),
+        mTimer(*aInstance, &Toy::HandleTimer) //pass handler function to TimerMilli constructor
     {
     }
 
@@ -31,7 +32,11 @@ private:
     void StartTimer(uint32_t aTimeout);
     void StopTimer();
 
-    static void HandleTimer(ot::TimerMilli &aTimer, void *aContext);
+    void HandleTimer(ot::TimerMilli &aTimer)
+    {
+        SendToyMessage();
+        aTimer.Start(1000);
+    }
 
     ot::TimerMilli mTimer;
     uint32_t mTimeout;
