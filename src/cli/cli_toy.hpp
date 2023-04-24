@@ -22,7 +22,7 @@ class Toy : private Output, public TimerMilli
 {
 public:
     Toy(otInstance *aInstance, OutputImplementer &aOutput)
-          : Output(aInstance, aOutput), TimerMilli(aInstance, &Toy::HandleTimer, this)
+          : Output(aInstance, aOutput), mTimer(aInstance, &Toy::HandleTimerTrampoline, this)
     {
     }
 
@@ -40,6 +40,12 @@ private:
         toy.OutputFormat("Timer fired!\n");
         aTimer.Start(1000);
     }
+    static void HandleTimerTrampoline(TimerMilli &aTimer, void *aContext)
+    {
+        Toy *toy = static_cast<Toy *>(aContext);
+        toy->HandleTimer(aTimer, aContext);
+    }
+    
 
     //ot::TimerMilli mTimer;
     uint32_t mTimeout;
