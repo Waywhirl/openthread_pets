@@ -1,6 +1,5 @@
 //
 // Created by light on 4/3/2023.
-/
 
 #include "cli_toy.hpp"
 #include <cli/cli.hpp>
