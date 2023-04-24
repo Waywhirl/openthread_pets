@@ -22,7 +22,7 @@ class Toy : private Output
 {
 public:
     Toy(ot::Instance &aInstance, OutputImplementer &aOutput)
-          : Output(aInstance, aOutput), mTimer(aInstance, HandleTimer, this)
+          : Output(aInstance, aOutput), Timer(aInstance, HandleTimer, this)
     {
     }
 
