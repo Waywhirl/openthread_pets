@@ -5,8 +5,8 @@
 #include <cli/cli.hpp>
 
 #include <string.hpp>
-#include <stdio.hpp>
-#include <stdlib.hpp>
+#include <stdio.h>
+#include <stdlib.h>
 
 #if OPENTHREAD_CONFIG_TOY_ENABLE
 
