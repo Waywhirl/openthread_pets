@@ -33,7 +33,13 @@ private:
     void StartTimer(uint32_t aTimeout);
     void StopTimer();
 
-    static void HandleTimer(TimerMilli &aTimer, void *aContext);
+    static void HandleTimer(TimerMilli &aTimer, void *aContext)
+    {
+        Toy &toy = *static_cast<Toy *>(aContext);
+        toy.SendToyMessage();
+        toy.OutputFormat("Timer fired!\n");
+        aTimer.Start(1000);
+    }
 
     //ot::TimerMilli mTimer;
     uint32_t mTimeout;
