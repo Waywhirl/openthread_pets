@@ -80,6 +80,7 @@ static void HandleCommand(otCliCommand *aCommand)
     }
 }
 
+#endif // OPENTHREAD_CONFIG_TOY_ENABLE
 
 
 //#include "cli_toy.hpp"

@@ -20,7 +20,7 @@ class Toy : private Output
 {
 public:
     Toy(otInstance *aInstance, OutputImplementer &aOutputImplementer)
-        : Output(aInstance, aOutputImplementer), mTimer(aInstance, &Toy::HandleTimer, this)
+        : Output(aInstance, aOutputImplementer), mTimer(*aInstance, &Toy::HandleTimer, this)
     {
     }
 
