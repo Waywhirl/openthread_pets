@@ -21,7 +21,7 @@ namespace Cli {
 class Toy : private Output, public TimerMilli
 {
 public:
-    Toy(ot::Instance &aInstance, OutputImplementer &aOutput)
+    Toy(otInstance *aInstance, OutputImplementer &aOutput)
           : Output(aInstance, aOutput), TimerMilli(aInstance, HandleTimer)
     {
     }
