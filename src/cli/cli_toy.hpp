@@ -22,7 +22,7 @@ class Toy : private Output, public TimerMilli
 {
 public:
     Toy(otInstance *aInstance, OutputImplementer &aOutput)
-          : Output(aInstance, aOutput), TimerMilli(aInstance, HandleTimer)
+          : Output(aInstance, aOutput), TimerMilli(aInstance, HandleTimer, this)
     {
     }
 
