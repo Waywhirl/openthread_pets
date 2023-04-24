@@ -3,6 +3,8 @@
 
 #include "cli_toy.hpp"
 #include <cli/cli.hpp>
+#include "core/common/instance.hpp"
+#include "core/net/ip6.hpp"
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>

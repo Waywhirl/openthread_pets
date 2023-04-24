@@ -10,6 +10,8 @@
 
 #include "cli/cli_config.h"
 #include "cli/cli_output.hpp"
+#include "core/common/instance.hpp"
+#include "core/net/ip6.hpp"
 #include "common/time.hpp"
 #include "common/timer.hpp"
 
@@ -21,7 +23,7 @@ class Toy : private Output
 public:
     Toy(otInstance *aInstance, OutputImplementer &aOutputImplementer)
           : Output(aInstance, aOutputImplementer),
-        mTimer(*static_cast<ot::Instance *>(aInstance), &Toy::HandTimer) //pass handler function to TimerMilli constructor
+        mTimer(*static_cast<ot::Instance *>(aInstance), &Toy::HandleTimer) //pass handler function to TimerMilli constructor
     {
     }
 
