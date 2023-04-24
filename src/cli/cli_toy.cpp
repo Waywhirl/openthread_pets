@@ -4,7 +4,7 @@
 #include "cli_toy.hpp"
 #include <cli/cli.hpp>
 
-#include <string.hpp>
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 
